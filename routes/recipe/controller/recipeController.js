@@ -71,5 +71,12 @@ async function updateRecipe(req, res) {
 const getSingleRecipe = async(req, res) => {
     try {
         let payload = Recipe.findById(req.params.id)
+
+        res.json({ message: "SUCCESS", payload })
+    } catch(err) {
+        res
+            .status(500)
+            .json({ message: "FAILURE", error: error.message })
     }
+    
 }
