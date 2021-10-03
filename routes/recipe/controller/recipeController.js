@@ -74,9 +74,7 @@ const getSingleRecipe = async(req, res) => {
 
         res.json({ message: "SUCCESS", payload })
     } catch(err) {
-        res
-            .status(500)
-            .json({ message: "FAILURE", error: error.message })
+        res.status(500).json({ message: "FAILURE", error: error.message })
     }
     
 }
