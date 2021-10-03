@@ -78,3 +78,12 @@ const getSingleRecipe = async(req, res) => {
     }
     
 }
+
+module.exports = {
+    getAllRecipes,
+    createRecipe,
+    deleteRecipe,
+    deleteAll,
+    updateRecipe,
+    getSingleRecipe
+}
