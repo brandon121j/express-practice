@@ -9,3 +9,5 @@ router.post('/create-recipe', createRecipe);
 router.delete('/delete-recipe-by-id/:id', deleteRecipe);
 router.delete('/delete-all', deleteAll);
 router.put('/update/:id', updateRecipe);
+
+module.exports = router;
