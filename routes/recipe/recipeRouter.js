@@ -3,11 +3,16 @@ var router = express.Router();
 
 const { getAllRecipes, createRecipe, deleteRecipe, deleteAll, updateRecipe, getSingleRecipe } = require('./controller/recipeController');
 
-router.get('/', getAllRecipes);
-router.get('/recipe-by-id', getSingleRecipe);
-router.post('/create-recipe', createRecipe);
-router.delete('/delete-recipe-by-id/:id', deleteRecipe);
-router.delete('/delete-all', deleteAll);
-router.put('/update/:id', updateRecipe);
+router.get('/', function(req, res, next) {
+    getAllRecipes({})
+        .then(payload => {
+            res.json({ message: "SUCCESS", payload })
+        })
+        .catch(error => {
+            res
+                .status(500)
+                .json({ message: "FAILURE", error: error.message })
+        })
+});
 
 module.exports = router;
